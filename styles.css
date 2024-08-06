@@ -1,0 +1,203 @@
+/* General styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Accent color */
+:root {
+    --accent-color: #ddb73b;
+}
+
+/* Navbar Styles */
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Glossy effect */
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar li {
+    margin: 0 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    /* font-weight: bold; */
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* Welcome section styles */
+
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #232526, #414345);
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+}
+
+#welcome-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin: 0.5em 0;
+    font-weight: 600;
+}
+
+#welcome-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    font-weight: 400;
+}
+
+/* Projects section styles */
+
+#projects {
+    padding: 50px;
+    text-align: center;
+    background-color: #282828;
+}
+
+#projects h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 30px;
+    color: #ddd;
+    font-weight: 600;
+}
+
+.project-tile {
+    display: inline-block;
+    margin: 20px;
+    width: 600px;
+    text-align: center;
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Glossy effect */
+}
+
+.project-tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+.project-tile img {
+    width: 100%;
+    height: 337.5px;
+}
+
+.project-tile a {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.project-tile a:hover {
+    color: var(--accent-color);
+}
+
+/* Contact section styles */
+
+#contact {
+    padding: 50px;
+    text-align: center;
+    background-color: #1e1e1e;
+}
+
+#contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0;
+    color: #ddd;
+    font-weight: 600;
+}
+
+#contact p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    margin-top: 0;
+    color: #bbb;
+}
+
+#email-link, .social-media a {
+    color: #e0e0e0;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+#email-link:hover, .social-media a:hover {
+    color: var(--accent-color);
+}
+
+.social-media {
+    margin-top: 30px;
+    font-size: 1.5em;
+}
+
+.social-media i {
+    margin: 0 10px;
+}
+
+/* Responsive Media Query */
+
+@media (max-width: 768px) {
+    .project-tile {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #navbar li {
+        margin: 10px 0;
+    }
+}
