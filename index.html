@@ -12,6 +12,10 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap"
 		rel="stylesheet">
+	<!-- Glide.js Carousel -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
 </head>
 
 <body>
@@ -33,32 +37,54 @@
 	<!-- Projects Section -->
 	<section id="projects">
 		<h2>These are some of my projects</h2>
-		<div class="project-tile">
-			<a href="https://github.com/slate20/slate-nexus/tree/Development" target="_blank">
-				<img src="./Images/slate-nexus-resize.png" alt="IT Management Platform" width="600" height="337.5">
-				IT Management Platform
-			</a>
+		<div class="glide">
+			<div class="glide__track" data-glide-el="track">
+				<ul class="glide__slides">
+					<li class="glide__slide">
+						<div class="project-tile">
+							<a href="https://github.com/slate20/slate-nexus/tree/Development" target="_blank">
+								<img src="./Images/slate-nexus-resize.png" alt="IT Management Platform" width="600"
+									height="337.5">
+								IT Management Platform
+							</a>
+						</div>
+					</li>
+					<li class="glide__slide">
+						<div class="project-tile">
+							<a href="https://github.com/slate20/ScribeEngine" target="_blank">
+								<img src="./Images/ScribeEngine_screenshot.png" alt="Text-Based Game Engine Editor"
+									width="600" height="337.5">
+								Text-Based Game Engine
+							</a>
+						</div>
+					</li>
+					<li class="glide__slide">
+						<div class="project-tile">
+							<a href="https://github.com/slate20/PyWebNative" target="_blank">
+								<img src="./Images/PyWebNative_screenshot.png" alt="IT Management Platform" width="600"
+									height="337.5">
+								Lightweight Flask+HTMX+PYWebview App Template/Framework
+							</a>
+						</div>
+					</li>
+					<li class="glide__slide">
+						<div class="project-tile">
+							<a href="https://advenchores.slatecapit.com" target="_blank">
+								<img src="./Images/Adven-Chores.png" alt="Gamified Chore App" width="600"
+									height="337.5">
+								Gamified Chore App
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="glide__arrows" data-glide-el="controls">
+				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+						class="fas fa-chevron-left"></i></button>
+				<button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+						class="fas fa-chevron-right"></i></button>
+			</div>
 		</div>
-		<div class="project-tile">
-			<a href="https://github.com/slate20/ScribeEngine" target="_blank">
-				<img src="./Images/ScribeEngine_screenshot.png" alt="Text-Based Game Engine Editor" width="600"
-					height="337.5">
-				Text-Based Game Engine
-			</a>
-		</div>
-		<div class="project-tile">
-			<a href="https://github.com/slate20/PyWebNative" target="_blank">
-				<img src="./Images/PyWebNative_screenshot.png" alt="IT Management Platform" width="600" height="337.5">
-				Lightweight Flask+HTMX+PYWebview App Template/Framework
-			</a>
-		</div>
-		<div class="project-tile">
-			<a href="https://advenchores.slatecapit.com" target="_blank">
-				<img src="./Images/Adven-Chores.png" alt="Gamified Chore App" width="600" height="337.5">
-				Gamified Chore App
-			</a>
-		</div>
-		<!-- Add more projects here -->
 	</section>
 
 	<!-- Contact Section -->
@@ -75,39 +101,65 @@
 		</div>
 	</section>
 	<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		const text = "Hello. I'm Matt, a software developer.";
-		const typewriterElement = document.getElementById('typewriter');
-		const subtitleElement = document.querySelector('#welcome-section h3');
-		let i = 0;
+		document.addEventListener('DOMContentLoaded', function () {
+			// Typewriter animation
+			const text = "Hello. I'm Matt, a software developer.";
+			const typewriterElement = document.getElementById('typewriter');
+			const subtitleElement = document.querySelector('#welcome-section h3');
+			let i = 0;
 
-		function typeWriter() {
-			if (i < text.length) {
-				const char = text.charAt(i);
-				typewriterElement.innerHTML += char;
-				i++;
+			function typeWriter() {
+				if (i < text.length) {
+					const char = text.charAt(i);
+					typewriterElement.innerHTML += char;
+					i++;
 
-				let speed = 75; // Default typing speed
-				if (char === '.' && (i - 1) < (text.length - 1)) {
-					speed = 500; // Pause for period
-				} else if (char === ',') {
-					speed = 200; // Pause for comma
+					let speed = 75; // Default typing speed
+					if (char === '.' && (i - 1) < (text.length - 1)) {
+						speed = 500; // Pause for period
+					} else if (char === ',') {
+						speed = 200; // Pause for comma
+					}
+
+					setTimeout(typeWriter, speed);
+				} else {
+					// Typing finished
+					typewriterElement.classList.remove('typing-cursor');
+
+					// Add a short delay before fading in the subtitle
+					setTimeout(() => {
+						subtitleElement.classList.add('visible');
+					}, 500);
 				}
-
-				setTimeout(typeWriter, speed);
-			} else {
-				// Typing finished
-				typewriterElement.classList.remove('typing-cursor');
-				
-				// Add a short delay before fading in the subtitle
-				setTimeout(() => {
-					subtitleElement.classList.add('visible');
-				}, 500);
 			}
-		}
 
 			typeWriter();
-	});
+
+			// Initialize Glide.js carousel
+			const glide = new Glide('.glide', {
+				type: 'carousel',
+				autoplay: 5000,
+				hoverpause: false,
+				perView: 1,
+				focusAt: 'center',
+				peek: {before: 300, after: 300},
+				animationDuration: 600
+			});
+
+			// Pause autoplay when arrow is clicked
+			let autoplayPaused = false;
+			const arrowButtons = document.querySelectorAll('.glide__arrow');
+			arrowButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					if (!autoplayPaused) {
+						glide.update({autoplay: false});
+						autoplayPaused = true;
+					}
+				});
+			});
+
+			glide.mount();
+		});
 	</script>
 </body>
 
