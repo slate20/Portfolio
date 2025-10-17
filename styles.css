@@ -12,6 +12,7 @@ body {
 	line-height: 1.6;
 	background-color: #1e1e1e;
 	color: #e0e0e0;
+	overflow-x: hidden;
 }
 
 h1,
@@ -127,7 +128,8 @@ h6 {
 	padding: 50px;
 	text-align: center;
 	background-color: #282828;
-	overflow: visible !important;
+	overflow-x: hidden;
+	overflow-y: visible;
 }
 
 #projects h2 {
@@ -147,7 +149,7 @@ h6 {
 }
 
 .glide__track {
-	overflow: visible !important;
+	overflow: hidden;
 }
 
 .glide__slides {
