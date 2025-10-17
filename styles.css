@@ -87,6 +87,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5em;
     margin: 0.5em 0;
     font-weight: 400;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1.5s ease-in; /* Fade-in transition */
+}
+
+#welcome-section h3.visible {
+    opacity: 1;
 }
 
 /* Projects section styles */
@@ -200,4 +206,17 @@ h1, h2, h3, h4, h5, h6 {
     #navbar li {
         margin: 10px 0;
     }
+}
+
+/* Typewriter cursor effect */
+.typing-cursor::after {
+    content: '|';
+    display: inline-block;
+    animation: blink-caret 0.75s infinite;
+    color: var(--accent-color);
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 1 }
+    50% { opacity: 0 }
 }
