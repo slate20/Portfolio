@@ -79,6 +79,22 @@ h6 {
 	color: #e0e0e0;
 	text-align: center;
 	padding: 20px;
+	position: relative;
+}
+
+#particles-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+#welcome-section h1,
+#welcome-section h3 {
+	position: relative;
+	z-index: 1;
 }
 
 #welcome-section h1 {
